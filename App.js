@@ -1,20 +1,19 @@
 import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import StickyNote from './StickyNote';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View>
-        <Text style={styles.text}>
-          Hello world.
-        </Text>
+      <View style={styles.container}>
+        <StickyNote />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  text: {
+  container: {
     margin: 24,
   }
 });
