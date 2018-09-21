@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, ScrollView, StyleSheet } from 'react-native';
+import { KeyboardAvoidingView, ScrollView, StyleSheet } from 'react-native';
 import StickyNote from './StickyNote';
 import uuidv4 from 'uuid/v4'
 import { Button } from 'react-native-elements';
@@ -19,7 +19,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container} behavior="padding">
         <ScrollView contentContainerStyle={styles.scrollContainer}>
           {this.state.StickyNoteList}
         </ScrollView>
@@ -28,7 +28,7 @@ export default class App extends React.Component {
           onPress={this.addStickyNote}
           buttonStyle={styles.addButton}
         />
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
