@@ -7,13 +7,19 @@ export default class StickyNote extends Component {
     return (
       <Card
         containerStyle={styles.card}
-        title="今日の目標"
-      >
+        title={
+          <View>
+            <TextInput
+              placeholder="タイトルを入力"
+              placeholderTextColor="#7c7c7c"
+              underlineColorAndroid={'rgba(0,0,0,0)'}
+            />
+          </View>
+        }>
         <TextInput
           placeholder="内容を入力"
           placeholderTextColor="#7c7c7c"
           multiline
-          style={styles.contentTextInput}
           underlineColorAndroid={'rgba(0,0,0,0)'}
         />
         <View style={styles.datetimeContainer}>
@@ -31,6 +37,7 @@ export default class StickyNote extends Component {
     backgroundColor: '#f5f99a',
   },
   datetimeContainer: {
+    marginTop: 10,
     flexDirection: 'row',
   },
 });
