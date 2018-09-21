@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, ScrollView, StyleSheet } from 'react-native';
 import StickyNote from './StickyNote';
 import uuidv4 from 'uuid/v4'
 import { Button } from 'react-native-elements';
@@ -19,10 +19,10 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View>
-        <View style={styles.container}>
+      <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
           {this.state.StickyNoteList}
-        </View>
+        </ScrollView>
         <Button
           title="＋"
           onPress={this.addStickyNote}
@@ -35,8 +35,10 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 10,
-    height: '100%'
+    height: "100%"
+  },
+  scrollContainer: {
+    marginTop: 10
   },
   addButton: {
     width: 50,
