@@ -8,11 +8,18 @@ export default class App extends React.Component {
   state = {
     StickyNoteList: [],
   };
+
+  deleteStickyNote = uuid => {
+    const stickyNoteList = this.state.StickyNoteList;
+    const newList = stickyNoteList.filter(note => note.key != uuid);
+    this.setState({ StickyNoteList: newList });
+  }
+
    addStickyNote = () => {
     const stickyNoteList = this.state.StickyNoteList;
     const uuid = uuidv4();
     stickyNoteList.push(
-      <StickyNote key={uuid} />
+      <StickyNote key={uuid} uuid={uuid} deleteStickyNote={this.deleteStickyNote} />
     );
     this.setState({ StickyNoteList: stickyNoteList });
   };
@@ -38,7 +45,8 @@ const styles = StyleSheet.create({
     height: "100%"
   },
   scrollContainer: {
-    marginTop: 10
+    marginTop: 10,
+    paddingBottom: 20
   },
   addButton: {
     width: 50,

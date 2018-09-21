@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import { Text, TextInput, View, StyleSheet } from 'react-native';
-import { Card } from 'react-native-elements';
+import { Card, Button } from 'react-native-elements';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 
 export default class StickyNote extends Component {
@@ -31,6 +31,11 @@ export default class StickyNote extends Component {
             />
           </View>
         }>
+        <Button
+          title="×"
+          buttonStyle={styles.deleteButton}
+          onPress={() => this.props.deleteStickyNote(this.props.uuid)}
+        />
         <TextInput
           placeholder="内容を入力"
           placeholderTextColor="#7c7c7c"
@@ -59,6 +64,15 @@ export default class StickyNote extends Component {
  const styles = StyleSheet.create({
   card: {
     backgroundColor: '#f5f99a',
+  },
+  deleteButton: {
+    backgroundColor: '#EFD032',
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    height: 30,
+    width: 30,
+    borderRadius: 30
   },
   datetimeContainer: {
     marginTop: 10,
